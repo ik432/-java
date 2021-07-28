@@ -1,0 +1,157 @@
+​
+方法/函数：
+概念：实现特定功能的一段代码。可以反复使用。
+语法：
+     public static void 方法名(){
+         方法体；
+     }
+定义的位置：方法定义在类的内部，与main方法并列。==方法不能嵌套。==
+方法的调用：方法名();
+方法的执行流程：调用方法时，会优先执方法内部的代码，结束后，返回到方法调用处。继续执行以下代码。
+
+方法参数：
+   形参与实参：
+     定义语法：
+     public static void(形式参数){
+         
+     }
+     调用语法：
+     方法名(实际参数)
+     
+     作用：方法的参数可以让代码功能更加灵活、普适性强、易于修改和维护。
+     
+     带参例子(根据不通的参数打印不同个的减号);
+     public class funcation_daican {
+	   public static void main(String[] args) {
+    		// TODO Auto-generated method stub
+    	    System.out.println("床前明月光");
+    	    Sign(10);
+    	    System.out.println("疑是地上霜");
+    	    Sign(5);
+    	    System.out.println("抬头望明月");
+    	    Sign(6);
+    	    System.out.println("低头思故乡");
+    	    Sign(8);
+    		}
+    		public static void Sign(int a){
+    			for(int i=1;i<=a;i++){
+    				System.out.print("-");
+    			}
+    			System.out.println("");
+    		}
+      }
+      
+      多个参数(参数之间用,隔开)
+      public class funcatin_duogedaican {
+    	    public static void main(String[] args) {
+    		 Sign(10, '*');//实参传入10  和*  打印10个*
+    		}
+    		public static void Sign(int a,char sign){
+    			for(int i=1;i<=a;i++){
+    				System.out.print(sign);
+    			}
+    			System.out.println("");
+    		}
+	   }
+	   
+	  
+   
+   如何定义参数：根据具体的业务需求
+   多个参数(参数之间用,隔开)登录例子：
+   public class funcatin_duogedaican {
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("请输入用户名：");
+		String user=scanner.next();
+		System.out.println("请输入用密码");
+		String pwd=scanner.next(); 
+		login(user, pwd);
+		}
+		public static  void login(String user,String pwd){
+			if(user.equals("admin")&&pwd.equals("123456")){
+				System.out.println("success");
+			}else {
+				System.out.println("fail");
+			}
+		}
+
+	}
+ 
+   返回值与返回值类型：概念：方法执行后返回结果。
+      返回值：基本数据类型，引用类型。void
+      定义语法：
+         public static 类型  方法名(参数){
+             方法体；
+             return  value；
+         }
+      return 和定义类型必须相同或兼容。
+   调用语法：
+     变量名=方法名()；
+   调用方式：直接打印
+             赋值给合适的变量
+             参与运算
+   return代表结束方法并返回值。
+   示例:
+   /*定义一个方法计算两个数的和。并返回结果再main方法中打印结果*/
+   public class funcation_return {
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("请输入参数一：");
+		double a=scanner.nextDouble();
+		System.out.println("请输入参数二：");
+		double b=scanner.nextDouble();
+		System.out.println(add(a, b));
+	}
+   public static double add(double a,double b){
+	   return  a+b;
+    }
+ }
+ 
+ return只能有一个，但是判断语句可有多个(判断语句只会走一条路径，也只会有一个return)
+ 带判断的return方法：
+ public class funcation_ifreturn {
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("输入一个整数：");
+		int num=scanner.nextInt();
+		System.out.println(IsEven(num));
+	}
+   public static String IsEven(int num){
+	   if(num%2==0){
+		   return "偶数";
+	   }else {
+		return "奇数";
+	}
+   }   
+}
+
+
+	public static void show(){
+		for(int i=1;i<=100;i++){
+			System.out.println(i);
+			if (i==50) {
+				//break;结束循环下面的输出语句还会输出
+				return;//return语句结束方法了后面的输出语句不会再执行。
+			}
+		}
+		System.out.println("程序结束！");
+	}
+	
+	return的两种用法：结束当前方法并伴有值的返回，将值返回到方法的调用处(适合具有返回值类型的方法)。
+	                  结束方法，直接返回到方法的调用处。
+	
+	注意：一个类中可以定义多个方法，方法之间属于并列关系，不可嵌套。
+	经验:一个方法只能做一件事。
+	
+	
+	方法根据有无返回值和有无参数分为4类：
+	       a.无返回值无参数的方法。
+	       b.有返回值有参数。
+	       c.无返回值有参数。
+	       d.有返回值无参数。
+	
+  递归：解决具有既定规律的问题时，在发布方法内部再次调用自身方法的方式。
+  递归能解决的问题循环都可以解决。
+
+​
